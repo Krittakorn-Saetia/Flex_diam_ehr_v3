@@ -1,0 +1,33 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# ZKP build artifacts (regenerable via zkp/build_zkp.sh; large; contain the
+# credential-issuer key of the local build)
+zkp/build/
+zkp/node_modules/
+*.ptau
+*.zkey
+*.wtns
+
+# Compiled binaries
+zkp/batchverify_native/batchverify_native
+chaincode/flex/flex
+
+# Outputs written by the drivers into the repository root. Results that are
+# meant to be kept are copied under results/<run>/ and tracked there.
+/exp*.csv
+/fig/
+exp*_rep*.csv
+!results/**/exp*_rep*.csv
+results_archive/
+*.log
+
+# Working notes that are not part of the published repository
+AUTHOR_NOTES.md
+
+# OneDrive / editor nuisance files
+desktop.ini
+*.lnk
+.vscode/
+.idea/

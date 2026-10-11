@@ -1,0 +1,5 @@
+# Python dependencies installed into the venv by infra/setup_infra.sh.
+# Charm-Crypto itself is built from source (not pip) — see the script.
+pyparsing>=3.0        # required by Charm's policy parser
+cryptography>=42      # ECDSA P-256 (tokens, DACs), ChaCha20-Poly1305 / AES-GCM
+matplotlib>=3.7       # figure rendering (plot_figs.py)
