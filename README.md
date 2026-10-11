@@ -14,6 +14,8 @@ This repository contains everything needed to run the prototype and reproduce
 the three experiments of the paper, compared against three revocable
 cross-domain authentication schemes (Refs [20], [24], [28] of the paper).
 
+- **[SETUP.md](SETUP.md)** — step-by-step setup from a clean machine to running
+  the experiments.
 - **[REPORT.md](REPORT.md)** — detailed report: what is implemented, how each
   experiment measures, results, validation, limitations.
 - **[PAPER_FIDELITY.md](PAPER_FIDELITY.md)** — equation-by-equation map from the
@@ -77,6 +79,10 @@ experiments were measured with:
 | Docker | 29.5.3 |
 
 ## Setup
+
+**[SETUP.md](SETUP.md) is the full step-by-step guide**: installing Ubuntu and
+Docker, what each script installs and where, the output to expect at every
+step, how to restart after a reboot, and troubleshooting. The short version:
 
 Clone inside Ubuntu:
 

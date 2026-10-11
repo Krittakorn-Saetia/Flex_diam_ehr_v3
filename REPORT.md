@@ -944,14 +944,29 @@ Fabric network. Both end with `12/12 checks passed` (live run: 2026-10-11).
 
 ## 12. Reproducing
 
-Step-by-step commands are in [README.md](README.md). In outline:
+[SETUP.md](SETUP.md) is the complete guide, from a clean machine to the
+figures, with the expected output of every step and a troubleshooting table.
+In outline:
 
-1. `infra/setup_infra.sh` — toolchain and Fabric (once per machine).
-2. `setup.sh` — circuits, keys, verifier, proof corpus, offline checks.
-3. Bring up the test-network and run `chaincode/deploy_ccaas.sh`.
-4. `smoke_protocol.py` against the live network: 12/12.
-5. `repeat_exp1.sh`, `repeat_exp2.sh`, `repeat_exp3.sh` — 30 runs each.
-6. `plot_figs.py` — figures.
+| Step | Command | Result | Time |
+|---|---|---|---|
+| 1 | install Ubuntu 22.04 (WSL2 or native) and Docker | `docker run --rm hello-world` works | 15–30 min |
+| 2 | `git clone … ~/flex-diam-v3` | the repository | 1 min |
+| 3 | `./infra/setup_infra.sh` | Go, PBC, Charm-Crypto in a venv, Node, Circom, SnarkJS, Fabric 2.5.9 with BatchTimeout 1 s, all under `~/flex-diam` | 20–40 min |
+| 4 | `./setup.sh` | circuit (3,810 constraints), Groth16 keys, native verifier, 32-proof corpus; verifier self-test, baseline self-test 4/4, protocol check 12/12 on the in-memory ledger | 2–3 min |
+| 5 | `./network.sh up createChannel -c mychannel` in the test-network directory | orderer and two peers running, channel created | 1 min |
+| 6 | `./chaincode/deploy_ccaas.sh` | chaincode `flexv3` committed; a query returns all-zero scoped state | 1 min |
+| 7 | `smoke_protocol.py` | 12/12 on the live network | 1–2 min |
+| 8 | `PILOT=1 ./run_expN.sh`, then `./repeat_expN.sh` | pilot CSVs, then 30 runs per experiment with mean and standard deviation | about 3 h in total |
+| 9 | `plot_figs.py` | the three figures | seconds |
+
+Steps 1–4 are done once per machine. Steps 5–7 are repeated whenever the
+network has been shut down; bringing it up starts a new ledger, so the
+chaincode is deployed again.
+
+Two settings must match for the latencies to be comparable with §9: the
+ordering service's BatchTimeout of 1 s (set before the channel is created) and
+running the experiments one at a time on an otherwise idle machine.
 
 Absolute values depend on the machine and on the Fabric configuration of §7.2;
 the comparison between schemes is made on one machine under one configuration.
@@ -1003,7 +1018,8 @@ are the ones committed here.
 
 | File | Content |
 |---|---|
-| `README.md` | setup and run instructions |
+| `README.md` | overview, quick setup, run commands, switches |
+| `SETUP.md` | full setup guide with expected outputs and troubleshooting |
 | `REPORT.md` | this report |
 | `PAPER_FIDELITY.md` | equation → code map, implementation choices, technical notes |
 | `NOTES_cost_dominant_ops.md` | planning notes of the V2 baselines, with a V3 addendum |
