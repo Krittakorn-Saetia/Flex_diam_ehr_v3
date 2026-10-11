@@ -38,7 +38,7 @@ SRAA) and [28] (Wang et al., CAMS).
 **What was measured.** All three experiments were run on 2026-10-11 with 30
 independent runs each (Run 1). After that run the baseline models of Refs [20]
 and [24] were audited against their source papers and corrected (§6). A re-run
-with the corrected baselines (Run 2) was started on 2026-10-12; §9.1 says which
+with the corrected baselines (Run 2) has not been completed yet; §9.1 says which
 numbers are final.
 
 **Findings that do not depend on the baseline corrections** (FLEX-DIAM and Ref
@@ -618,7 +618,7 @@ enough new doctors to bring the count to N, then measures:
 | Run | Started | Baseline models | State |
 |---|---|---|---|
 | Run 1 | 2026-10-11 | as before the audit of §6 | complete: 30 runs of each experiment |
-| Run 2 | 2026-10-12 00:14 | corrected (§6) | in progress when this report was written; not included below |
+| Run 2 | — | corrected (§6) | not completed: a first attempt on 2026-10-12 was interrupted after 20 of the 30 runs of Experiment 1 and is not used |
 
 Run 1 values are means ± standard deviation over 30 independent runs. Columns
 marked † were measured with a baseline model that has since been corrected and
@@ -816,10 +816,11 @@ Observations:
 ### 9.5 Run 2 — corrected baselines
 
 Run 2 repeats all three experiments, 30 runs each, with the baseline
-implementations of §6. It was started at 00:14 on 2026-10-12 and had not
-finished when this report was written. Its results will be added under
-`results/run2_2026-10-12/` and this section will be replaced by the final
-tables.
+implementations of §6. It has not been completed. A first attempt on 2026-10-12
+was interrupted after 20 of the 30 runs of Experiment 1; those runs are not
+used, because a result set is only reported when all 30 runs of an experiment
+exist. When a complete Run 2 exists, its results will be added under `results/`
+and this section will be replaced by the final tables.
 
 Expected changes relative to Run 1, from offline timings only:
 
@@ -981,7 +982,7 @@ the comparison between schemes is made on one machine under one configuration.
 | 2026-10-11 | Fabric test-network brought up; chaincode `flexv3` deployed; 12/12 protocol checks on the live network; pilots of Experiments 2 and 3. |
 | 2026-10-11 | Run 1: Experiments 1, 2 and 3, 30 runs each. |
 | 2026-10-11 | Baseline models audited against the source papers (§6). |
-| 2026-10-12 | Refs [20] and [24] re-implemented from their papers; baseline self-test added; Run 2 started. |
+| 2026-10-12 | Refs [20] and [24] re-implemented from their papers; baseline self-test added. A first attempt at Run 2 was interrupted during Experiment 1. |
 
 ---
 

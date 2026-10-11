@@ -30,7 +30,7 @@ only reads CSV files; it never generates data.
 | Run | Date | Content | Where |
 |---|---|---|---|
 | Run 1 | 2026-10-11 | All three experiments, 30 independent runs each. FLEX-DIAM and Ref [28] are final. Refs [20] and [24] were measured with baseline models that were corrected afterwards (see REPORT.md §6). | `results/run1_2026-10-11/` |
-| Run 2 | 2026-10-12 | Re-run of all three experiments with the corrected baselines. In progress when this file was written; REPORT.md §9 states whether it has been added. | `results/run2_2026-10-12/` |
+| Run 2 | not completed | Re-run of all three experiments with the corrected baselines. A first attempt on 2026-10-12 was interrupted during Experiment 1 and is not used. REPORT.md §9 states whether a complete Run 2 has been added. | `results/` |
 
 ## What is implemented
 
